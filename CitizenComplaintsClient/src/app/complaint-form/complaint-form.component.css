@@ -26,7 +26,7 @@ textarea{
     font-weight: bold;
 }
 
-input[type="text"].ng-dirty.ng-invalid, select.ng-dirty.ng-invalid{
+input[type="text"].ng-dirty.ng-invalid, select.ng-dirty.ng-invalid,textarea.ng-dirty.ng-invalid{
     border-color:#f44336;
 }
 

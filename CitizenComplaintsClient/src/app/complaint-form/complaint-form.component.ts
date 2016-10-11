@@ -8,11 +8,12 @@ import {
         emailValidator,numberOnlyValidator,phoneNumberValidator,  
         NewGuid} from '../shared'
 
-//todo: check parms for id. if id then build form with model information for edit
-//todo: add whip
-//todo: use model to build entity information
-//todo: break formbuilder groups down into smaller  methods
-//todo  asyc wait lookups > buildform > isActive
+
+//todo: Use data Model to build Formgroups 
+//todo: Break formbuilder groups down into smaller  methods
+//Todo: Create us states table and fetch with lookups.
+//Todo: Add saving indicator. 
+//Todo: complaintId should be passed  as a param to formgrup method
 
 @Component({
     selector:'complaint-from',
@@ -23,7 +24,7 @@ export class ComplaintFormComponent implements OnInit{
     
     form: FormGroup;
     locationAddresses:FormArray;
-    //Todo: complaintId should be passed via signature as a param. this is a quick hack
+   
     complaintId:string;
     isActive:boolean = false;
     issueTypes:IIssueType[] = [];
@@ -62,7 +63,7 @@ export class ComplaintFormComponent implements OnInit{
                 address:['', Validators.required],
                 address2:null,
                 city:['Duckburg', Validators.required],
-                stateId:['CA',[Validators.required, Validators.minLength(2)]], //Todo: add a select with a list of states. pull from lookups in service
+                stateId:['CA',[Validators.required, Validators.minLength(2)]], 
                 zipCode:[null,[Validators.required,Validators.minLength(5)]],
                 phoneDay:['',[Validators.required,phoneNumberValidator]],
                 phoneEvening:[null,[phoneNumberValidator]],
@@ -76,7 +77,7 @@ export class ComplaintFormComponent implements OnInit{
             locationAddresses: this.buildLocationArray(),
             issueTypeId:[null, Validators.required] 
         });
-        //console.log(this.form);
+       
     }
     private buildLocationArray():FormArray{
         this.locationAddresses = this.formBuilder.array([
@@ -95,7 +96,7 @@ export class ComplaintFormComponent implements OnInit{
            zipCode:[null,Validators.minLength(5)]
        });
     }
-    //Todo: add saving indicator
+ 
     onSubmit():void{
         if(this.form.valid){
           this.service.addComplaintAsync(this.form.value)
