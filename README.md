@@ -13,7 +13,7 @@ API
 - Data 
     - SQL Server - Change the connection string in appsettings
     - LocalDb - SqlLocalDB.exe start if not already running  
-- Run `dotnet run` to start the API
+- Run `dotnet run` to or in VS run under CitizenComplaints (not IIS Express) to start the API
 
 Application
 - Run `npm install` to install app dependencies
