@@ -1,0 +1,18 @@
+<ul>
+    <li *ngFor="let complaint of complaints" (click)="onSelect(complaint)">
+            <div class="issue flex-align-middle l-padding-ends">
+                {{complaint.issue.displayName}}
+            </div>
+            <div class="description flex-align-middle l-padding-ends ">
+                {{complaint.description.description}}
+            </div>
+            <div class="created flex-align-middle-center l-padding-ends">
+                {{complaint.createdDateTime | date: 'dd/MM/yyyy'}}
+            </div>
+    </li>
+</ul>
+<div class="action">
+    <button md-fab (click)="onAdd()">
+        <md-icon class="md-24">add</md-icon>
+    </button>
+</div>

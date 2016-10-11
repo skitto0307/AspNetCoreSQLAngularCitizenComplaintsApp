@@ -1,0 +1,113 @@
+<md-card *ngIf="complaint">
+      <md-card-title>
+        Citizen Information
+     </md-card-title>
+     <div class="flex-row">
+        <div class="flex-control-group l-padding-right">
+            <label>First Name</label>
+            {{complaint.citizen.firstName}}
+        </div>
+        <div class="flex-control-group l-padding-right" *ngIf="complaint.citizen.middleInitial">
+            <label>Middle Initial</label>
+            {{complaint.citizen.middleInitial}}
+        </div>
+        <div class="flex-control-group l-padding-right">
+            <label>Last Name</label>
+            {{complaint.citizen.lastName}}
+        </div>
+     </div>
+     <div class="flex-row">
+        <div class="flex-control-group l-padding-right">
+            <label>Day Phone</label>
+            {{complaint.citizen.phoneDay | phone}}
+        </div>
+        <div class="flex-control-group l-padding-right" *ngIf="complaint.citizen.phoneEvening">
+            <label>Evening Phone</label>
+            {{complaint.citizen.phoneEvening | phone}}
+        </div>
+        <div class="flex-control-group l-padding-right" *ngIf="complaint.citizen.phoneFax">
+            <label>Fax</label>
+            {{complaint.citizen.phoneFax | phone}}
+        </div>                  
+     </div>
+     <div class="flex-control-group" *ngIf="complaint.citizen.email">
+            <label>Email</label>
+            {{complaint.citizen.email}}
+    </div>
+    <div class="flex-control-group l-padding-right">
+            <label>Address</label>
+            {{complaint.citizen.address}}
+    </div>
+    <div class="flex-control-group l-padding-right" *ngIf="complaint.citizen.address2">
+        <label>Address 2</label>
+        {{complaint.citizen.address2}}
+    </div>
+    <div class="flex-row">
+        <div class="flex-control-group l-padding-right" >
+            <label>City</label>
+            {{complaint.citizen.city}}
+        </div>
+        <div class="flex-control-group l-padding-right" >
+            <label>State</label>
+            {{complaint.citizen.stateId}}
+        </div>
+        <div class="flex-control-group l-padding-right" >
+            <label>Zip Code</label>
+            {{complaint.citizen.zipCode}}
+        </div>
+    </div>
+    <md-card-title class="l-padding-top">
+        Complaint Information
+    </md-card-title>
+    <div class="flex-row">
+     
+        <div class="flex-control-group l-padding-right flex-1">
+            <label>Issue Type</label>
+            {{complaint.issue.displayName}}
+        </div>
+           <div class="flex-control-group l-padding-right">
+            <label>Created</label>
+            {{complaint.createdDateTime | date: 'dd/MM/yyyy'}}
+        </div>
+    </div>
+    <div class="address-wrapper">
+        <label>Location(s)</label>
+        <ul>
+            <li *ngFor="let location of complaint.locationAddresses">
+                <div class="flex-control-group">
+                    <label>Address</label>
+                    {{location.address}}
+                </div>
+                <div class="flex-control-group" *ngIf="location.address2">
+                    <label>Address 2</label>
+                    {{location.address2}}
+                </div>
+                <div class="flex-row">
+                    <div class="flex-control-group l-padding-right">
+                        <label>City</label>
+                        {{location.city}}
+                    </div>
+                    <div class="flex-control-group l-padding-right">
+                        <label>State</label>
+                        {{location.stateId}}
+                    </div>
+                    <div class="flex-control-group l-padding-right" *ngIf="location.zipCode">
+                        <label>Zip Code</label>
+                        {{location.zipCode}}
+                    </div>
+                </div>  
+            </li>
+        </ul>
+    </div>
+    <div class="flex-control-group l-padding-right">
+        <label>Description</label>
+        {{complaint.description.description}}
+    </div>
+
+    <md-card-actions align="end" class="l-padding-right">
+      <button md-button (click)="onClose()">Close</button>
+    </md-card-actions>
+</md-card>
+<!--<md-card>
+  <p>complaint: {{ complaint | json }}</p>
+</md-card>-->

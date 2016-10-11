@@ -1,0 +1,126 @@
+<md-card *ngIf="isActive">
+      <form [formGroup]="form"  (ngSubmit)="onSubmit()">
+        <md-card-title>
+            Citizen Information
+        </md-card-title>
+        <div formGroupName="citizen">
+            <div class="flex-row">
+                <div class="flex-control-group l-padding-right flex-1">
+                    <label>First Name <span class="required">*</span></label>
+                    <input formControlName="firstName" maxlength="35" type="text" autocomplete="off">
+                </div>
+                <div class="flex-control-group l-padding-right">
+                    <label>Middle Initial</label>
+                    <input formControlName="middleInitial" maxlength="1" type="text" autocomplete="off">
+                </div>
+                <div class="flex-control-group  flex-1">
+                    <label>Last Name <span class="required">*</span></label>
+                    <input formControlName="lastName" maxlength="35" type="text" autocomplete="off">
+                </div>
+            </div>
+            <div class="flex-row">
+                <div class="flex-control-group l-padding-right flex-1">
+                    <label>Day Phone <span class="required">*</span><span class="example">(10 Digit eg 5555555555)</span></label>
+                    <input formControlName="phoneDay" type="text" maxlength="10"  autocomplete="off">
+                </div>
+                <div class="flex-control-group l-padding-right flex-1">
+                    <label>Evening Phone</label>
+                    <input formControlName="phoneEvening" type="text" maxlength="10"  autocomplete="off">
+                </div>
+                <div class="flex-control-group flex-1">
+                    <label>Fax</label>
+                    <input formControlName="phoneFax" type="text" maxlength="10"  autocomplete="off">
+                </div>                  
+            </div>
+            <div class="flex-control-group flex-1">
+                    <label>Email</label>
+                    <input formControlName="email" type="text" autocomplete="off">
+            </div>
+            <div class="flex-control-group flex-1">
+                    <label>Address <span class="required">*</span></label>
+                    <input formControlName="address" maxlength="64" type="text" autocomplete="off">
+            </div>
+            <div class="flex-control-group flex-1">
+                <label>Address 2</label>
+                <input formControlName="address2" maxlength="64" type="text" autocomplete="off">
+            </div>
+            <div class="flex-row">
+                <div class="flex-control-group l-padding-right flex-1" >
+                    <label>City <span class="required">*</span></label>
+                    <input formControlName="city" maxlength="35" type="text" autocomplete="off">
+                </div>
+                <div class="flex-control-group l-padding-right" >
+                    <label>State <span class="required">*</span><span class="example">(Two Digit State)</span></label>
+                    <input formControlName="stateId" maxlength="2" type="text" autocomplete="off">
+                </div>
+                <div class="flex-control-group" >
+                    <label>Zip Code <span class="required">*</span><span class="example">(eg 55555)</span></label>
+                    <input formControlName="zipCode" maxlength="5" type="text" autocomplete="off">
+                </div>
+            </div>
+        </div>
+        <md-card-title class="l-padding-top">
+            Complaint Information
+        </md-card-title>
+        <div class="flex-row">
+            <div class="flex-control-group  flex-1">
+                <label>Issue Type <span class="required">*</span></label>
+                
+                <select style="width:50%" formControlName="issueTypeId">
+                    <option *ngFor="let issue of issueTypes;" [value]="issue.issueTypeId">{{issue.displayName}}</option>
+                </select> 
+            </div>
+
+        </div>
+        <div class="address-wrapper" formArrayName="locationAddresses">
+            <div class="flex-row">
+                <div class="flex-1"><label class="header">Location(s)</label></div>
+                <div class="flex-1 flex-align-middle-right l-padding-right">
+                      <button md-button [disabled]="!form.controls.locationAddresses.valid" (click)="onAddressAdd()">Add Address</button>
+                </div>
+            </div>
+            
+            <ul class="list-clear">
+                <li  *ngFor="let location of locationAddresses.controls; let i=index" [formGroupName]="i">
+                    
+                    <div class="flex-control-group">
+                        <label>Address <span class="required">*</span></label>
+                        <input type="text" maxlength="64" formControlName="address" autocomplete="off">
+                    </div>
+                    <div class="flex-control-group" >
+                        <label>Address 2</label>
+                        <input formControlName="address2" type="text" maxlength="64" autocomplete="off">
+                    </div>
+                    <div class="flex-row">
+                        <div class="flex-control-group flex-1 l-padding-right">
+                            <label>City <span class="required">*</span></label>
+                            <input formControlName="city" type="text" maxlength="30" autocomplete="off">
+                        </div>
+                        <div class="flex-control-group l-padding-right">
+                            <label>State <span class="required">*</span><span class="example">(Two Digit State)</span></label>
+                            <input formControlName="stateId" type="text" maxlength="2" autocomplete="off">
+                        </div>
+                        <div class="flex-control-group">
+                            <label>Zip Code<span class="example">(eg 55555)</span></label>
+                            <input formControlName="zipCode" type="text" maxlength="5" autocomplete="off">
+                        </div>
+                    </div>  
+                </li>
+            </ul>
+        </div>
+        <div formGroupName="description" class="flex-control-group l-padding-right">
+            <label>Description <span>*</span></label>
+            <textarea formControlName="description"></textarea>
+        </div>
+
+        <md-card-actions align="end" class="l-padding-right">
+        <button md-button (click)="onCancel()">Cancel</button>
+        <button md-button [disabled]="!form.valid">Submit</button>
+        </md-card-actions>
+      </form>
+</md-card>
+<!--<md-card style="margin-top:15px;" *ngIf="isActive">
+  <p>Form: {{ form.value | json }}</p>
+  <p>Form status: {{ form.status }}</p>
+ 
+</md-card>-->

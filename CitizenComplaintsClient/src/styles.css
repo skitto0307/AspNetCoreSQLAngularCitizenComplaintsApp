@@ -1,0 +1,297 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+body {
+  background: rgba(0,0,0,0.04);
+  font-family: Roboto, sans-serif;
+  margin:0;padding:0;
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.app-wrapper {
+  margin-top:15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+[md-button] {
+  margin: 0 -6px !important;
+}
+
+input {
+  width:100%;
+  display: block;
+  box-sizing: border-box;
+  height: 36px;
+  margin: 0;
+  font-size: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.18);
+  overflow: hidden;
+  font: inherit;
+  outline: none;
+}
+
+textarea{
+  width:100%;
+   display: block;
+  border: 1px solid rgba(0,0,0,0.18);
+    font-size: 100%;
+     font: inherit;
+    outline: none;
+}
+
+select{
+    height: 36px;
+    line-height: 36px;
+    margin:8px 0;
+    font-size:100%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0, 0.18);
+    width: 100%;
+}
+select:focus{
+   
+    outline: none;
+}
+
+
+/*
+*
+*  References:
+*  Thanks to AngularJs Material see: https://material.angularjs.org
+*  https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+*  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes
+*  
+*/
+
+[class*='flex-'] {
+  box-sizing: border-box;
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-fill {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+}
+.flex-1 {
+  flex: 1;
+}
+.flex-3 {
+  flex: 2;
+}
+.flex-3 {
+  flex: 3;
+}
+.flex-4 {
+  flex: 4;
+}
+.flex-5 {
+  flex: 5;
+}
+.flex-6 {
+  flex: 6;
+}
+.flex-7 {
+  flex: 7;
+}
+.flex-8 {
+  flex: 8;
+}
+.flex-9 {
+  flex: 9;
+}
+.flex-10 {
+  flex: 10;
+}
+.flex-25 {
+  flex: 0 0 25%;
+}
+.flex-row > .flex-25 {
+  max-width: 25%;
+}
+.flex-column > .flex-25 {
+  max-height: 25%;
+}
+.flex-30 {
+  flex: 0 0 30%;
+}
+.flex-row > .flex-30 {
+  max-width: 30%;
+}
+.flex-column > .flex-30 {
+  max-height: 30%;
+}
+.flex-50 {
+  flex: 0 0 50%;
+}
+.flex-row > .flex-50 {
+  max-width: 50%;
+}
+.flex-column > .flex-50 {
+  max-height: 50%;
+}
+.flex-70 {
+  flex: 0 0 70%;
+}
+.flex-row > .flex-70 {
+  max-width: 70%;
+}
+.flex-column > .flex-70 {
+  max-height: 70%;
+}
+.flex-75 {
+  flex: 0 0 75%;
+}
+.flex-row > .flex-75 {
+  max-width: 75%;
+}
+.flex-column > .flex-75 {
+  max-height: 75%;
+}
+.flex-100 {
+  flex: 0 0 100%;
+}
+.flex-row > .flex-100 {
+  max-width: 100%;
+}
+.flex-column > .flex-100 {
+  max-height: 100%;
+}
+.flex-min-width-25 {
+  min-width: 25px;
+}
+.flex-control-group {
+  margin-bottom: 15px;
+  flex-direction: column;
+}
+.flex-control-group > label {
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+[flex-1] {
+  display: flex;
+  flex: 1;
+}
+[flex-align-right] {
+  text-align: right;
+  justify-content: flex-end;
+}
+.flex-align-right {
+  justify-content: flex-end;
+}
+.flex-align-right-center {
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex-align-middle {
+  align-items: center;
+}
+.flex-align-middle-center {
+  align-items: center;
+  justify-content: center;
+}
+.flex-align-middle-right {
+  align-items: center;
+  justify-content: flex-end;
+}
+.flexbox-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  flex: 1;
+}
+.flexbox-row-nowrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  flex: 1;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+.flexbox-row-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  flex: 1;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.flex-self-align-right {
+  align-self: flex-end;
+}
+
+/*
+ Todo: move to sass when you have time. gutter with 15px
+ l = layout
+*/
+.l-content{
+    display:block;
+    position:relative;
+}
+.l-float-right{
+    float:right;
+}
+.l-float-left{
+    float:left;
+}
+.l-pin-top{
+    position:fixed;
+    top:0;left:0;right:0;
+}
+.l-padding-left{
+      padding-left:15px;
+}
+.l-padding-top{
+      padding-top:15px;
+}
+.l-padding-bottom{
+      padding-bottom:15px;
+}
+.l-padding-right{
+      padding-right:15px;
+}
+.l-padding-ends{
+    padding-right:15px;
+    padding-left:15px;
+}
+.l-padding-all{
+      padding:15px;
+}
+.l-margin-top{
+    margin-top:15px;
+}
+.l-margin-bottom{
+    margin-bottom:15px;
+}
+.l-margin-top-bottom{
+    margin:15px;
+}
+
+ ul.list-clear{
+    margin: 15px 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}

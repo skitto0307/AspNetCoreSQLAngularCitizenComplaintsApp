@@ -1,0 +1,42 @@
+md-card{
+    width:802px;
+}
+label{
+    font-size:13px;
+    color: rgba(0,0,0, 0.80);
+}
+label  .example{
+    font-size:10px;
+    color: rgba(0,0,0, 0.70);
+    display: inline-block;
+    margin-left: 5px;
+}
+.required{
+    color:#F44336;
+}
+textarea{
+    display:block;
+    width:100%;
+    border-radius: 0;
+    border-width: 0 0 1px;
+    height:150px;
+    resize:none;
+}
+.address-wrapper  label.header{
+    font-weight: bold;
+}
+
+input[type="text"].ng-dirty.ng-invalid, select.ng-dirty.ng-invalid{
+    border-color:#f44336;
+}
+
+input[type="text"]:focus,textarea:focus, select:focus{
+    border-color: #2196F3 !important;
+}
+.address-wrapper > ul > li{
+    
+    margin-bottom:25px;
+}
+.address-wrapper > ul > li:last-child{
+    border-bottom: none;
+}

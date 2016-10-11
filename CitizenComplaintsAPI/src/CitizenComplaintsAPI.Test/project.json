@@ -1,0 +1,17 @@
+﻿{
+  "version": "1.0.0-*",
+  "testRunner": "xunit",
+  "dependencies": {
+    "xunit": "2.2.0-beta3-build3402",
+    "NETStandard.Library": "1.6.0",
+    "xunit.runner.visualstudio": "2.2.0-beta3-build1187",
+    "xunit.runner.console": "2.2.0-beta3-build3402",
+    "Microsoft.EntityFrameworkCore.InMemory": "1.0.1"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  }
+}
