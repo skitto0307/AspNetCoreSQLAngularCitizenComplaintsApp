@@ -105,7 +105,12 @@ export class ComplaintFormComponent implements OnInit{
     onAddressAdd():void{
         this.locationAddresses.push(this.buildLocationGroup());
     }
-    onCancel():void{
-        this.router.navigate(['/list']);
+    onCancel(event){
+        
+        //hack - app refreshes due to button being inside the form. 
+        event.preventDefault();
+        event.stopPropagation();
+
+        this.router.navigate(['/']);
     }
 }
