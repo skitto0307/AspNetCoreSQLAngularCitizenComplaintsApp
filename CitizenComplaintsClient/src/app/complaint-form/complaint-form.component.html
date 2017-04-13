@@ -6,56 +6,75 @@
         <div formGroupName="citizen">
             <div class="flex-row">
                 <div class="flex-control-group l-padding-right flex-1">
-                    <label>First Name <span class="required">*</span></label>
-                    <input formControlName="firstName" maxlength="35" type="text" autocomplete="off">
+                    <md-input-container>
+                        <input mdInput placeholder="FirstName *" formControlName="firstName" maxlength="35" type="text" autocomplete="off">
+                    </md-input-container>
                 </div>
                 <div class="flex-control-group l-padding-right">
-                    <label>Middle Initial</label>
-                    <input formControlName="middleInitial" maxlength="1" type="text" autocomplete="off">
+                    <md-input-container>
+                        <input mdInput placeholder="Middle Initial" formControlName="middleInitial" maxlength="1" type="text" autocomplete="off">
+                    </md-input-container>
                 </div>
                 <div class="flex-control-group  flex-1">
-                    <label>Last Name <span class="required">*</span></label>
-                    <input formControlName="lastName" maxlength="35" type="text" autocomplete="off">
+                    <md-input-container>
+                        <input mdInput placeholder="Last Name *" formControlName="lastName" maxlength="35" type="text" autocomplete="off">
+                    </md-input-container>
                 </div>
             </div>
             <div class="flex-row">
                 <div class="flex-control-group l-padding-right flex-1">
-                    <label>Day Phone <span class="required">*</span><span class="example">(10 Digit eg 5555555555)</span></label>
-                    <input formControlName="phoneDay" type="text" maxlength="10"  autocomplete="off">
+                    <!--<label>Day Phone <span class="required">*</span><span class="example">(10 Digit eg 5555555555)</span></label>-->
+                    <md-input-container>
+                        <input mdInput placeholder="Day Phone *" formControlName="phoneDay" type="text" maxlength="10"  autocomplete="off">
+                        <md-hint>(10 Digit eg 5555555555)</md-hint>
+                    </md-input-container>
                 </div>
                 <div class="flex-control-group l-padding-right flex-1">
-                    <label>Evening Phone</label>
-                    <input formControlName="phoneEvening" type="text" maxlength="10"  autocomplete="off">
+                    <!--<label>Evening Phone</label>-->
+                    <md-input-container>
+                        <input mdInput placeholder="Evening Phone" formControlName="phoneEvening" type="text" maxlength="10"  autocomplete="off">
+                    </md-input-container>
                 </div>
                 <div class="flex-control-group flex-1">
-                    <label>Fax</label>
-                    <input formControlName="phoneFax" type="text" maxlength="10"  autocomplete="off">
+                    <!--<label>Fax</label>-->
+                    <md-input-container>
+                        <input mdInput placeholder="Fax" formControlName="phoneFax" type="text" maxlength="10"  autocomplete="off">
+                    </md-input-container>
                 </div>                  
             </div>
             <div class="flex-control-group flex-1">
-                    <label>Email</label>
-                    <input formControlName="email" type="text" autocomplete="off">
+                    <!--<label>Email</label>-->
+                    <md-input-container>
+                        <input mdInput placeholder="Email" formControlName="email" type="text" autocomplete="off">
+                    </md-input-container>
             </div>
             <div class="flex-control-group flex-1">
-                    <label>Address <span class="required">*</span></label>
-                    <input formControlName="address" maxlength="64" type="text" autocomplete="off">
+                    <!--<label>Address <span class="required">*</span></label>-->
+                    <md-input-container>
+                        <input mdInput placeholder="Address *" formControlName="address" maxlength="64" type="text" autocomplete="off">
+                    </md-input-container>
             </div>
             <div class="flex-control-group flex-1">
-                <label>Address 2</label>
-                <input formControlName="address2" maxlength="64" type="text" autocomplete="off">
+                <md-input-container>
+                    <input mdInput placeholder="Address 2" formControlName="address2" maxlength="64" type="text" autocomplete="off">
+                </md-input-container>
             </div>
             <div class="flex-row">
                 <div class="flex-control-group l-padding-right flex-1" >
-                    <label>City <span class="required">*</span></label>
-                    <input formControlName="city" maxlength="35" type="text" autocomplete="off">
+                     <md-input-container>
+                        <input mdInput placeholder="City *" formControlName="city" maxlength="35" type="text" autocomplete="off">
+                    </md-input-container>
                 </div>
                 <div class="flex-control-group l-padding-right" >
                     <label>State <span class="required">*</span><span class="example">(Two Digit State)</span></label>
                     <input formControlName="stateId" maxlength="2" type="text" autocomplete="off">
                 </div>
                 <div class="flex-control-group" >
-                    <label>Zip Code <span class="required">*</span><span class="example">(eg 55555)</span></label>
-                    <input formControlName="zipCode" maxlength="5" type="text" autocomplete="off">
+                    <!--<label>Zip Code *<span class="required">*</span><span class="example">(eg 55555)</span></label>-->
+                    <md-input-container>
+                        <input mdInput placeholder="Zip Code" formControlName="zipCode" maxlength="5" type="text" autocomplete="off">
+                        <md-hint>#####</md-hint>
+                    </md-input-container>
                 </div>
             </div>
         </div>
@@ -64,11 +83,15 @@
         </md-card-title>
         <div class="flex-row">
             <div class="flex-control-group  flex-1">
-                <label>Issue Type <span class="required">*</span></label>
-                
-                <select style="width:50%" formControlName="issueTypeId">
+                <!--<label>Issue Type <span class="required">*</span></label>-->
+                <md-select placeholder="Issue Type">
+                    <md-option *ngFor="let issue of issueTypes" [value]="issue.issueTypeId">
+                        {{issue.displayName}}
+                    </md-option>
+                </md-select>
+                <!--<select style="width:50%" formControlName="issueTypeId">
                     <option *ngFor="let issue of issueTypes;" [value]="issue.issueTypeId">{{issue.displayName}}</option>
-                </select> 
+                </select> -->
             </div>
 
         </div>

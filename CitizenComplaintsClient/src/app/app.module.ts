@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 
 import {CitizenComplaintsService,PhonePipe} from './shared';
@@ -20,10 +20,11 @@ import { CitizenComplaintsClientRoutingModule, routedComponents } from './app-ro
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     CitizenComplaintsClientRoutingModule
   ],
   providers: [CitizenComplaintsService],
