@@ -104,7 +104,9 @@ export class ComplaintFormComponent implements OnInit{
         }   
     }
     onAddressAdd():void{
-        this.locationAddresses.push(this.buildLocationGroup());
+        //this.locationAddresses.splice(0, 0, this.buildLocationGroup());
+        this.locationAddresses.insert(0, this.buildLocationGroup());
+        //this.locationAddresses.push(this.buildLocationGroup());
     }
     onCancel(event){
         
@@ -113,5 +115,9 @@ export class ComplaintFormComponent implements OnInit{
         event.stopPropagation();
 
         this.router.navigate(['/']);
+    }
+
+    getFormInfo(){
+        console.log(this.form);
     }
 }

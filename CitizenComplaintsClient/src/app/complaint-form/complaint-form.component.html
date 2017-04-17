@@ -1,141 +1,107 @@
 <md-card *ngIf="isActive">
       <form [formGroup]="form"  (ngSubmit)="onSubmit()">
         <md-card-title>
-            Citizen Information
-        </md-card-title>
-        <div formGroupName="citizen">
-            <div class="flex-row">
-                <div class="flex-control-group l-padding-right flex-1">
-                    <md-input-container>
-                        <input mdInput placeholder="FirstName *" formControlName="firstName" maxlength="35" type="text" autocomplete="off">
-                    </md-input-container>
-                </div>
-                <div class="flex-control-group l-padding-right">
-                    <md-input-container>
-                        <input mdInput placeholder="Middle Initial" formControlName="middleInitial" maxlength="1" type="text" autocomplete="off">
-                    </md-input-container>
-                </div>
-                <div class="flex-control-group  flex-1">
-                    <md-input-container>
-                        <input mdInput placeholder="Last Name *" formControlName="lastName" maxlength="35" type="text" autocomplete="off">
-                    </md-input-container>
-                </div>
-            </div>
-            <div class="flex-row">
-                <div class="flex-control-group l-padding-right flex-1">
-                    <!--<label>Day Phone <span class="required">*</span><span class="example">(10 Digit eg 5555555555)</span></label>-->
-                    <md-input-container>
-                        <input mdInput placeholder="Day Phone *" formControlName="phoneDay" type="text" maxlength="10"  autocomplete="off">
-                        <md-hint>(10 Digit eg 5555555555)</md-hint>
-                    </md-input-container>
-                </div>
-                <div class="flex-control-group l-padding-right flex-1">
-                    <!--<label>Evening Phone</label>-->
-                    <md-input-container>
-                        <input mdInput placeholder="Evening Phone" formControlName="phoneEvening" type="text" maxlength="10"  autocomplete="off">
-                    </md-input-container>
-                </div>
-                <div class="flex-control-group flex-1">
-                    <!--<label>Fax</label>-->
-                    <md-input-container>
-                        <input mdInput placeholder="Fax" formControlName="phoneFax" type="text" maxlength="10"  autocomplete="off">
-                    </md-input-container>
-                </div>                  
-            </div>
-            <div class="flex-control-group flex-1">
-                    <!--<label>Email</label>-->
-                    <md-input-container>
-                        <input mdInput placeholder="Email" formControlName="email" type="text" autocomplete="off">
-                    </md-input-container>
-            </div>
-            <div class="flex-control-group flex-1">
-                    <!--<label>Address <span class="required">*</span></label>-->
-                    <md-input-container>
-                        <input mdInput placeholder="Address *" formControlName="address" maxlength="64" type="text" autocomplete="off">
-                    </md-input-container>
-            </div>
-            <div class="flex-control-group flex-1">
-                <md-input-container>
-                    <input mdInput placeholder="Address 2" formControlName="address2" maxlength="64" type="text" autocomplete="off">
-                </md-input-container>
-            </div>
-            <div class="flex-row">
-                <div class="flex-control-group l-padding-right flex-1" >
-                     <md-input-container>
-                        <input mdInput placeholder="City *" formControlName="city" maxlength="35" type="text" autocomplete="off">
-                    </md-input-container>
-                </div>
-                <div class="flex-control-group l-padding-right" >
-                    <label>State <span class="required">*</span><span class="example">(Two Digit State)</span></label>
-                    <input formControlName="stateId" maxlength="2" type="text" autocomplete="off">
-                </div>
-                <div class="flex-control-group" >
-                    <!--<label>Zip Code *<span class="required">*</span><span class="example">(eg 55555)</span></label>-->
-                    <md-input-container>
-                        <input mdInput placeholder="Zip Code" formControlName="zipCode" maxlength="5" type="text" autocomplete="off">
-                        <md-hint>#####</md-hint>
-                    </md-input-container>
-                </div>
-            </div>
-        </div>
-        <md-card-title class="l-padding-top">
             Complaint Information
         </md-card-title>
-        <div class="flex-row">
-            <div class="flex-control-group  flex-1">
-                <!--<label>Issue Type <span class="required">*</span></label>-->
-                <md-select placeholder="Issue Type">
-                    <md-option *ngFor="let issue of issueTypes" [value]="issue.issueTypeId">
-                        {{issue.displayName}}
-                    </md-option>
-                </md-select>
-                <!--<select style="width:50%" formControlName="issueTypeId">
-                    <option *ngFor="let issue of issueTypes;" [value]="issue.issueTypeId">{{issue.displayName}}</option>
-                </select> -->
-            </div>
-
-        </div>
-        <div class="address-wrapper" formArrayName="locationAddresses">
-            <div class="flex-row">
-                <div class="flex-1"><label class="header">Location(s)</label></div>
-                <div class="flex-1 flex-align-middle-right l-padding-right">
-                      <button md-button [disabled]="!form.controls.locationAddresses.valid" (click)="onAddressAdd()">Add Address</button>
+        <md-tab-group selectedIndex="2">
+            <md-tab label="Citizen Information">
+                <div formGroupName="citizen">
+                    <div class="flex-form-row">
+                        <md-input-container class="flex-1">
+                            <input mdInput placeholder="FirstName *" formControlName="firstName" maxlength="35" type="text" autocomplete="off">
+                        </md-input-container>
+                        <md-input-container>
+                            <input mdInput placeholder="Middle Initial" formControlName="middleInitial" maxlength="1" type="text" autocomplete="off">
+                        </md-input-container>
+                        <md-input-container class="flex-1">
+                            <input mdInput placeholder="Last Name *" formControlName="lastName" maxlength="35" type="text" autocomplete="off">
+                        </md-input-container>
+                    </div>
+                    <div class="flex-form-row">
+                        <md-input-container class="flex-1">
+                            <input mdInput placeholder="Day Phone *" formControlName="phoneDay" type="text" maxlength="10"  autocomplete="off">
+                            <md-hint>##########</md-hint>
+                        </md-input-container>
+                        <md-input-container class="flex-1">
+                            <input mdInput placeholder="Evening Phone" formControlName="phoneEvening" type="text" maxlength="10"  autocomplete="off">
+                        </md-input-container>
+                        <md-input-container class="flex-1">
+                            <input mdInput placeholder="Fax" formControlName="phoneFax" type="text" maxlength="10"  autocomplete="off">
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="l-full-width">
+                        <input mdInput placeholder="Email" formControlName="email" type="text" autocomplete="off">
+                    </md-input-container>
+                    <md-input-container class="l-full-width">
+                        <input mdInput placeholder="Address *" formControlName="address" maxlength="64" type="text" autocomplete="off">
+                    </md-input-container>
+                    <md-input-container class="l-full-width">
+                        <input mdInput placeholder="Address 2" formControlName="address2" maxlength="64" type="text" autocomplete="off">
+                    </md-input-container>
+                    <div class="flex-form-row">
+                        <md-input-container class="flex-1">
+                            <input mdInput placeholder="City *" formControlName="city" maxlength="35" type="text" autocomplete="off">
+                        </md-input-container>
+                        <md-input-container>
+                            <input mdInput placeholder="State *" formControlName="stateId" maxlength="2" type="text" autocomplete="off">
+                            <md-hint>Two Digit State Code</md-hint>
+                        </md-input-container>
+                        <md-input-container>
+                                <input mdInput placeholder="Zip Code *" formControlName="zipCode" maxlength="5" type="text" autocomplete="off">
+                                <md-hint>#####</md-hint>
+                        </md-input-container>
+                    </div>
                 </div>
-            </div>
-            
-            <ul class="list-clear">
-                <li  *ngFor="let location of locationAddresses.controls; let i=index" [formGroupName]="i">
-                    
-                    <div class="flex-control-group">
-                        <label>Address <span class="required">*</span></label>
-                        <input type="text" maxlength="64" formControlName="address" autocomplete="off">
-                    </div>
-                    <div class="flex-control-group" >
-                        <label>Address 2</label>
-                        <input formControlName="address2" type="text" maxlength="64" autocomplete="off">
-                    </div>
+            </md-tab>
+            <!--<md-tab label="Location(s)" [disabled]="!form.controls.citizen.valid">-->
+            <md-tab label="Location(s)">
+                <div class="address-wrapper" formArrayName="locationAddresses">
                     <div class="flex-row">
-                        <div class="flex-control-group flex-1 l-padding-right">
-                            <label>City <span class="required">*</span></label>
-                            <input formControlName="city" type="text" maxlength="30" autocomplete="off">
-                        </div>
-                        <div class="flex-control-group l-padding-right">
-                            <label>State <span class="required">*</span><span class="example">(Two Digit State)</span></label>
-                            <input formControlName="stateId" type="text" maxlength="2" autocomplete="off">
-                        </div>
-                        <div class="flex-control-group">
-                            <label>Zip Code<span class="example">(eg 55555)</span></label>
-                            <input formControlName="zipCode" type="text" maxlength="5" autocomplete="off">
-                        </div>
-                    </div>  
-                </li>
+               
+                    <div class="flex-1 flex-align-middle-right l-padding-right">
+                        <button md-button [disabled]="!form.controls.locationAddresses.valid" (click)="onAddressAdd()">Add Location</button>  
+                    </div>
+                </div>
+                <ul class="list-clear">
+                    <li  *ngFor="let location of locationAddresses.controls; let i=index" [formGroupName]="i">
+                        <md-input-container class="l-full-width">
+                            <input mdInput placeholder="Address *" type="text" maxlength="64" formControlName="address" autocomplete="off">
+                        </md-input-container>
+                        <md-input-container class="l-full-width">
+                            <input mdInput placeholder="Address 2" formControlName="address2" type="text" maxlength="64" autocomplete="off">
+                        </md-input-container>
+                        <div class="flex-form-row">
+                            <md-input-container class="flex-1">
+                                <input mdInput placeholder="City *" formControlName="city" type="text" maxlength="30" autocomplete="off">
+                            </md-input-container>
+                            <md-input-container>
+                                <input mdInput placeholder="State *" formControlName="stateId" type="text" maxlength="2" autocomplete="off">
+                                <md-hint>Two Digit State Code</md-hint>
+                            </md-input-container>
+                            <md-input-container>
+                                <input mdInput placeholder="Zip Code" formControlName="zipCode" type="text" maxlength="5" autocomplete="off">
+                                <md-hint>#####</md-hint>
+                            </md-input-container>
+                       </div>
+                    </li>
             </ul>
         </div>
-        <div formGroupName="description" class="flex-control-group l-padding-right">
-            <label>Description <span class="required">*</span></label>
-            <textarea formControlName="description"></textarea>
-        </div>
-
+            </md-tab>
+            <md-tab label="Issue">
+                <div class="flex-form-row">
+                    <md-select placeholder="Issue Type" formControlName="issueTypeId">
+                        <md-option *ngFor="let issue of issueTypes"  [value]="issue.issueTypeId">
+                            {{issue.displayName}}
+                        </md-option>
+                    </md-select>
+                 </div>
+                 <div formGroupName="description" class="flex-form-row l-padding-top">
+                    <md-input-container class="flex-1">
+                        <textarea mdInput placeholder="Description *" formControlName="description"></textarea>
+                    </md-input-container>
+                </div>
+            </md-tab>
+        </md-tab-group>
         <md-card-actions align="end" class="l-padding-right">
         <button md-button (click)="onCancel($event)">Cancel</button>
         <button md-button [disabled]="!form.valid">Submit</button>
@@ -145,5 +111,4 @@
 <!--<md-card style="margin-top:15px;" *ngIf="isActive">
   <p>Form: {{ form.value | json }}</p>
   <p>Form status: {{ form.status }}</p>
- 
 </md-card>-->

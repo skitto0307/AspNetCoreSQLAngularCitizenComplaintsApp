@@ -1,6 +1,6 @@
 import { AbstractControl } from '@angular/forms';
 
-//could be part of core lang
+//could be part of core
 function isNullOrEmpty(value:string){
      return value === undefined || value === null || value === '';
 }

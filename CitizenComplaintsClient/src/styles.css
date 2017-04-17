@@ -17,45 +17,8 @@ body {
   justify-content: space-around;
 }
 
-[md-button] {
-  margin: 0 -6px !important;
-}
-
-/*input {
-  width:100%;
-  display: block;
-  box-sizing: border-box;
-  height: 36px;
-  margin: 0;
-  font-size: 100%;
-  border: none;
-  border-bottom: 1px solid rgba(0,0,0,0.18);
-  overflow: hidden;
-  font: inherit;
-  outline: none;
-}*/
-
-textarea{
-  width:100%;
-   display: block;
-  border: 1px solid rgba(0,0,0,0.18);
-    font-size: 100%;
-     font: inherit;
-    outline: none;
-}
-
-select{
-    height: 36px;
-    line-height: 36px;
-    margin:8px 0;
-    font-size:100%;
-    border: none;
-    border-bottom: 1px solid rgba(0,0,0, 0.18);
-    width: 100%;
-}
-select:focus{
-   
-    outline: none;
+md-tab-body{
+  margin-top:30px;
 }
 
 
@@ -279,6 +242,9 @@ select:focus{
 .l-padding-all{
       padding:15px;
 }
+.l-margin-right{
+   margin-right:15px; 
+}
 .l-margin-top{
     margin-top:15px;
 }
@@ -288,7 +254,9 @@ select:focus{
 .l-margin-top-bottom{
     margin:15px;
 }
-
+.l-full-width{
+  width:100%;
+}
  ul.list-clear{
     margin: 15px 0;
     padding: 0;
