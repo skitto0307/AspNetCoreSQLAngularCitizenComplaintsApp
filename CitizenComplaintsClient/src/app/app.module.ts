@@ -1,33 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@angular/material';
-
-import {CitizenComplaintsService,PhonePipe} from './shared';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule }      from '@angular/core';
 
 import { AppComponent } from './app.component';
-
-import { CitizenComplaintsClientRoutingModule, routedComponents } from './app-routing.module';
-
+import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
+import { MaterialModule } from './shared/material.module';
+import { SharedModule }   from './shared/shared.module';
 
 @NgModule({
+  imports: [
+    AppRoutingModule, 
+    BrowserAnimationsModule,
+    BrowserModule,
+    CoreModule,
+    MaterialModule,
+    SharedModule,
+  ],
   declarations: [
     AppComponent,
-    routedComponents,
-    PhonePipe
+    AppRoutingModule.components,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    MaterialModule,
-    CitizenComplaintsClientRoutingModule
-  ],
-  providers: [CitizenComplaintsService],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

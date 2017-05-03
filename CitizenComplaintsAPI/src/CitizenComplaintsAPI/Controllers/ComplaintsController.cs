@@ -50,22 +50,28 @@ namespace CitizenComplaintsAPI.Controllers
 
         }
 
-        // POST api/complaints update
+        // POST api/complaints Add
         [HttpPost]
         public JsonResult Post([FromBody]Complaint complaint)
         {
 
-            db.Update(complaint);
+            db.Add(complaint);
             db.SaveChanges();
 
             return Json(complaint);
         }
 
-        // PUT api/complaints add
+        // PUT api/complaints Update
         [HttpPut]
-        public JsonResult Put([FromBody]Complaint complaint)
+        public IActionResult Put(Guid id,[FromBody]Complaint complaint)
         {
-            db.Add(complaint);
+            var _complaint = db.Complaints.Where(c => c.CitizenId.Equals(id)).SingleOrDefault();
+
+            if (_complaint != null) {
+                return NotFound(Json(complaint));
+            }
+            
+            db.Update(complaint);
             db.SaveChanges();
 
             return Json(complaint);

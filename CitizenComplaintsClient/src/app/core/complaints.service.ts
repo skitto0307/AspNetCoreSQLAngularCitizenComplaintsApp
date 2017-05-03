@@ -4,12 +4,13 @@ import { Observer } from 'rxjs/Observer';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
-import {IComplaint, IIssueType} from '../index';
+import {IComplaint, IIssueType} from '../shared';
 
 @Injectable()
-export class CitizenComplaintsService{
+export class ComplaintsService{
     
     apiUrl = '/api';
+    
     complaints:IComplaint[];
     IssueTypes:IIssueType[];
 
@@ -20,7 +21,7 @@ export class CitizenComplaintsService{
         if(!this.complaints){
             return this.getComplaintsAsync();
         }else{
-            //todo: i dont think Observable is need here. could use promise instead
+            //todo: i dont think an Observable is needed here. could use promise instead
             return Observable.create((observer: Observer<any>) => {
                 observer.next(this.complaints);
                 observer.complete();
@@ -45,10 +46,11 @@ export class CitizenComplaintsService{
     }
     //Todo: add returned value to local list index 0
     addComplaintAsync(complaint:IComplaint):Promise<boolean>{
-        return this.http.put(`${this.apiUrl}/complaints`,complaint)
+        console.log(complaint)
+        return this.http.post(`${this.apiUrl}/complaints`, complaint)
             .map((resp: Response) =>  {
-                    //resp.json().value
-                    //add returned complaint to complaints array
+                    
+                    //Todo: don't add to list until returned from the server
                     return true;
             })
             .catch(this.handleError)

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import {CitizenComplaintsService, IComplaint} from '../shared'
+import { ComplaintsService } from '../core/complaints.service';
+import { IComplaint } from '../shared'
 
 @Component({
     selector:'complaints-details',
@@ -14,7 +15,7 @@ export class ComplaintDetailsComponent implements OnInit{
 
     constructor(private router: Router, 
               private route: ActivatedRoute, 
-              private service: CitizenComplaintsService){ }
+              private service: ComplaintsService){ }
 
     ngOnInit(): void {
         //no need to subscribe to router params here. route will not change while active
@@ -29,7 +30,7 @@ export class ComplaintDetailsComponent implements OnInit{
 
 
     onClose(): void{
-             this.router.navigate(['/list']);
+             this.router.navigate(['/complaints']);
     }
     
     onRrefresh():void{}

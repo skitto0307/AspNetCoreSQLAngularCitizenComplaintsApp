@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import {CitizenComplaintsService, IComplaint} from '../shared'
+import { ComplaintsService } from '../core/complaints.service';
+import {IComplaint} from '../shared'
 
 @Component({
-    selector:'complaint-list',
-    templateUrl:'./complaint-list.component.html',
-    styleUrls:['complaint-list.component.css']
+    selector:'complaints',
+    templateUrl:'./complaints.component.html',
+    styleUrls:['complaints.component.css']
 })
-export class ComplaintListComponent implements OnInit{
+export class ComplaintsComponent implements OnInit{
     
     complaints:IComplaint[] = [];
 
     constructor(private router: Router,
-                private service: CitizenComplaintsService){}
+                private service: ComplaintsService){}
     
     ngOnInit() {
          //? pull from local resourse if exist
@@ -21,7 +22,7 @@ export class ComplaintListComponent implements OnInit{
          this.service.getComplaintsAsync()
             .subscribe(data=> this.complaints = data);
     }
-
+yield
     onSelect(complaint:IComplaint):void{
         //todo: nav to add/complaintId
         this.router.navigate([`/details/${complaint.complaintId}`]);

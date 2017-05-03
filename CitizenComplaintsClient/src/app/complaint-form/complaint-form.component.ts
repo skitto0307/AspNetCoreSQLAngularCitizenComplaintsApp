@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 // import {isPresent} from '@angular/core/src/facade/lang';
+
+import { ComplaintsService } from '../core/complaints.service';
 import {
-        CitizenComplaintsService, 
         IComplaint,IIssueType,
         emailValidator,numberOnlyValidator,phoneNumberValidator,  
         NewGuid} from '../shared'
@@ -22,7 +23,7 @@ import {
 })
 export class ComplaintFormComponent implements OnInit{
     
-    form: FormGroup;
+   form: FormGroup;
     locationAddresses:FormArray;
    
     complaintId:string;
@@ -31,7 +32,7 @@ export class ComplaintFormComponent implements OnInit{
 
     constructor(private router: Router,
                 public formBuilder: FormBuilder, 
-                private service:CitizenComplaintsService) {}
+                private service:ComplaintsService) {}
 
     ngOnInit() {
         
@@ -100,7 +101,7 @@ export class ComplaintFormComponent implements OnInit{
     onSubmit():void{
         if(this.form.valid){
           this.service.addComplaintAsync(this.form.value)
-            .then(data=>  this.router.navigate(['/list']));
+            .then(data=>  this.router.navigate(['/complaints']));
         }   
     }
     onAddressAdd():void{
