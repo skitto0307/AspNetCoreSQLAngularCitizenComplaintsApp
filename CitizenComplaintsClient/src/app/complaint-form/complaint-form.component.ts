@@ -19,7 +19,7 @@ import {
 @Component({
     selector:'complaint-from',
     templateUrl:'./complaint-form.component.html',
-    styleUrls:['complaint-form.component.css']
+    styleUrls:['complaint-form.component.scss']
 })
 export class ComplaintFormComponent implements OnInit{
     
@@ -35,19 +35,39 @@ export class ComplaintFormComponent implements OnInit{
                 private service:ComplaintsService) {}
 
     ngOnInit() {
-        
+ 
         this.service.getLookups()
             .then((data)=> {
                 this.issueTypes = this.service.IssueTypes;        
                 this.buildForm();
                 this.isActive = true;
             });
-
-      
-
-
     }
-    //todo: wrap in promise
+    onSubmit():void{
+        if(this.form.valid){
+          this.service.addComplaintAsync(this.form.value)
+            .then(data=>  this.router.navigate(['/complaints']));
+        }   
+    }
+    onAddressAdd():void{
+        //this.locationAddresses.splice(0, 0, this.buildLocationGroup());
+        this.locationAddresses.insert(0, this.buildLocationGroup());
+        //this.locationAddresses.push(this.buildLocationGroup());
+    }
+    onCancel(event){
+        
+        //hack - app refreshes due to button being inside the form. 
+        event.preventDefault();
+        event.stopPropagation();
+
+        this.router.navigate(['/']);
+    }
+
+    getFormInfo(){
+        console.log(this.form);
+    }
+
+        //todo: wrap in promise
     private buildForm():void{
                 let _complaintId:string = NewGuid();
         this.complaintId = _complaintId;
@@ -96,29 +116,5 @@ export class ComplaintFormComponent implements OnInit{
            stateId:['CA',[Validators.required,Validators.minLength(2)]],
            zipCode:[null,Validators.minLength(5)]
        });
-    }
- 
-    onSubmit():void{
-        if(this.form.valid){
-          this.service.addComplaintAsync(this.form.value)
-            .then(data=>  this.router.navigate(['/complaints']));
-        }   
-    }
-    onAddressAdd():void{
-        //this.locationAddresses.splice(0, 0, this.buildLocationGroup());
-        this.locationAddresses.insert(0, this.buildLocationGroup());
-        //this.locationAddresses.push(this.buildLocationGroup());
-    }
-    onCancel(event){
-        
-        //hack - app refreshes due to button being inside the form. 
-        event.preventDefault();
-        event.stopPropagation();
-
-        this.router.navigate(['/']);
-    }
-
-    getFormInfo(){
-        console.log(this.form);
     }
 }

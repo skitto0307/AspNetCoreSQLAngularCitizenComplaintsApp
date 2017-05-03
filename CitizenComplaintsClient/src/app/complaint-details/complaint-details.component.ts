@@ -7,7 +7,7 @@ import { IComplaint } from '../shared'
 @Component({
     selector:'complaints-details',
     templateUrl:'./complaint-details.component.html',
-    styleUrls:['./complaint-details.component.css']
+    styleUrls:['./complaint-details.component.scss']
 })
 export class ComplaintDetailsComponent implements OnInit{
 
